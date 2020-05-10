@@ -62,16 +62,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\Battlefield\Battlefield.cs" />
+    <Compile Include="Assets\Script\Birds\Birds.cs" />
+    <Compile Include="Assets\Script\Birds\BirdsMove.cs" />
     <Compile Include="Assets\Script\BirdsHome\BirdsMaker.cs" />
-    <Compile Include="Assets\Script\BirdsHome\BirdsReady.cs" />
     <Compile Include="Assets\Script\Button\BackMeau.cs" />
     <Compile Include="Assets\Script\Button\birdsReady.cs" />
+    <Compile Include="Assets\Script\Button\FaSetFalse.cs" />
     <Compile Include="Assets\Script\Button\GameExit.cs" />
     <Compile Include="Assets\Script\Button\GameStart.cs" />
+    <Compile Include="Assets\Script\Button\GameTips.cs" />
     <Compile Include="Assets\Script\Button\OpenSelect.cs" />
     <Compile Include="Assets\Script\Camera\CameraScript.cs" />
+    <Compile Include="Assets\Script\GameWorld\EnemyMaker.cs" />
+    <Compile Include="Assets\Script\GameWorld\IsSelection.cs" />
+    <Compile Include="Assets\Script\GameWorld\MapCreate.cs" />
     <Compile Include="Assets\Script\GameWorld\Mouse.cs" />
+    <Compile Include="Assets\Script\GameWorld\Slider.cs" />
+    <Compile Include="Assets\Script\Ground\Grass.cs" />
+    <Compile Include="Assets\Script\Hunter\Hunter.cs" />
+    <Compile Include="Assets\Script\Timberjack\Timberjack.cs" />
+    <Compile Include="Assets\Script\Tree\TreeState.cs" />
+    <Compile Include="Assets\Script\WordsTip\TopTips.cs" />
     <Compile Include="Assets\Script\WordsTip\WordsTip.cs" />
+    <None Include="Assets\Material\OutLineShader.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/unity project/birds war/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

@@ -14,6 +14,7 @@ public class GameStart : MonoBehaviour
     void OnClick()
     {
         SceneManager.LoadScene("Game");
+        Time.timeScale = 1;
     }
     void Update()
     {

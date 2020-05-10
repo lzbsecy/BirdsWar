@@ -6,17 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class OpenSelect : MonoBehaviour
 {
+    public AudioClip ac;
     public GameObject SelectionBox;
 
     void Start()
     {
-
+    
         GetComponent<Button>().onClick.AddListener(OnClick);
     }
 
     void OnClick()
     {
-        
+        AudioSource.PlayClipAtPoint(ac, transform.position);
         if (SelectionBox.activeSelf == true)
         {
             Time.timeScale = 1;

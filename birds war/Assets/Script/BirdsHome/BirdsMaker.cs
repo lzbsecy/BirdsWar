@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class BirdsMaker : MonoBehaviour
 {
-    public bool Selection = false;
+    public bool Selection;
     public GameObject bg;
-   
-    public int clickCount=0;
+    public GameObject birds1;
+    public GameObject birds2;
+    public GameObject birds3;
+    public GameObject birds4;
+
     public int state = 0; //0:free,1:busy,2:finished
     public int product; //正在生产（0，1，2，3）
 
@@ -15,20 +18,31 @@ public class BirdsMaker : MonoBehaviour
 
     private float timeCount = 0;
     private float timeCount1 = 0;
+    
+
     void Start()
     {
-        
-        timeMax = 4;
+
     }
 
     void Update()
     {
+        if(gameObject.GetComponent<IsSelection>().Selection==false && state==0)
+        {
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                gameObject.GetComponent<IsSelection>().Selection = true;
+            }
+        }
+
+        Selection = gameObject.GetComponent<IsSelection>().Selection;
+
 
         OnClick();
 
         Making(product);
 
-        if(state==2)
+        if(state==2)//繁殖完毕，1.5sbg自动关闭
         {
             timeCount1 += Time.deltaTime;
             if(timeCount1>=1.5)
@@ -44,15 +58,12 @@ public class BirdsMaker : MonoBehaviour
     {
         if (Selection && state==0)
         {
-            
-            if (clickCount < 1)
-            {
-                clickCount++;
-                bg.SetActive(true);
-            }
+            gameObject.GetComponent<SpriteRenderer>().material.SetFloat("_Outline", 15);
+            bg.SetActive(true);        
         }
         else
-        {           
+        {
+            gameObject.GetComponent<SpriteRenderer>().material.SetFloat("_Outline", 0);
             bg.SetActive(false);   
         }
 
@@ -71,6 +82,10 @@ public class BirdsMaker : MonoBehaviour
                     if (timeCount >= timeMax / 2)
                     {
                         Debug.Log("bird ready!"+"("+timeCount+")");
+                        Instantiate(birds1, transform.position + new Vector3(1, 1, 0), transform.rotation);
+                        Instantiate(birds1, transform.position + new Vector3(-1, -1, 0), transform.rotation);
+                        Instantiate(birds1, transform.position + new Vector3(-1, 1, 0), transform.rotation);
+
                         state = 2;
                         timeCount = 0;
                        
@@ -80,6 +95,9 @@ public class BirdsMaker : MonoBehaviour
                     if (timeCount >= timeMax / 2)
                     {
                         Debug.Log("bird ready!" + "(" + timeCount + ")");
+                        Instantiate(birds2, transform.position + new Vector3(1, 1, 0), transform.rotation);
+                        Instantiate(birds2, transform.position + new Vector3(-1, -1, 0), transform.rotation);
+
                         state = 2;
                         timeCount = 0;
                     }
@@ -88,6 +106,12 @@ public class BirdsMaker : MonoBehaviour
                     if (timeCount >= timeMax / 3)
                     {
                         Debug.Log("bird ready!" + "(" + timeCount + ")");
+                        //Instantiate(birds3, transform.position + new Vector3(1, 1, 0), transform.rotation);
+                        //Instantiate(birds3, transform.position + new Vector3(-1, -1, 0), transform.rotation);
+                        //Instantiate(birds3, transform.position + new Vector3(1, 1, 0), transform.rotation);
+                        //Instantiate(birds3, transform.position + new Vector3(-1, -1, 0), transform.rotation);
+                       // Instantiate(birds3, transform.position + new Vector3(0, 0, 0), transform.rotation);
+
                         state = 2;
                         timeCount = 0;
                     }
@@ -96,6 +120,8 @@ public class BirdsMaker : MonoBehaviour
                     if (timeCount >= timeMax)
                     {
                         Debug.Log("bird ready!" + "(" + timeCount + ")");
+                        //Instantiate(birds4, transform.position + new Vector3(0, 0, 0), transform.rotation);
+
                         state = 2;
                         timeCount = 0;
                     }

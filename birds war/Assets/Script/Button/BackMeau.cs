@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class BackMeau : MonoBehaviour
 {
+
     void Start()
     {
         GetComponent<Button>().onClick.AddListener(OnClick);
@@ -17,6 +18,6 @@ public class BackMeau : MonoBehaviour
     }
     void Update()
     {
-
+      
     }
 }

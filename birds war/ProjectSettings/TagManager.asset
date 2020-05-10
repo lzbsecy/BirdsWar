@@ -13,6 +13,18 @@ TagManager:
   - Birds4
   - Tips
   - bg
+  - Birds
+  - Grass
+  - Sand
+  - Tree
+  - GameWorld
+  - Battlefield
+  - Slider
+  - Hunter
+  - Timberjack
+  - GameOverBox
+  - Panel
+  - TopTips
   layers:
   - Default
   - TransparentFX
